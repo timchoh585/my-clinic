@@ -21,6 +21,33 @@
 <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- //web-fonts -->
+
+<script>
+var patientList = ["JuliaJameson", "MaxTurner", "AmyAdams", "LacySmith"];
+
+function onSearchInput() {
+	console.log("in search");
+
+    // Declare variables
+    var input, filter, p, i, d;
+    input = document.getElementById('searchInput');
+    filter = input.value.toUpperCase();
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < patientList.length; i++) {
+    	p = patientList[i];
+    	d = document.getElementById(p);
+    	if(p.toUpperCase().indexOf(filter) > -1){
+    		d.style.display = "";
+    	}
+    	else{
+    		d.style.display = "none";
+    	}
+    }
+}
+
+</script>
+
 </head>
 <body class="bg">
 	<div class="overlay overlay-simplegenie">
@@ -140,7 +167,10 @@
 <div class="blog" id="blog">
 	<div class="container">
 	<h4 class="tittle-myclinic">Your Patients</h4>
-		<div class="blog-grid-w3-agileits">
+	<div id="searchBar">
+	<input type="text" id="searchInput" placeholder="Search.." onkeyup="onSearchInput()" />
+	</div>
+		<div class="blog-grid-w3-agileits" id="JuliaJameson">
 			<div class="blog-img1-agileits-myclinic">
 			</div>
 			<div class="blog-info-myclinic">
@@ -154,7 +184,7 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
-		<div class="blog-grid-w3-agileits">
+		<div class="blog-grid-w3-agileits" id="MaxTurner">
 			<div class="blog-img2-agileits-myclinic">
 			</div>
 			<div class="blog-info-myclinic">
@@ -168,7 +198,7 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
-		<div class="blog-grid-w3-agileits">
+		<div class="blog-grid-w3-agileits" id="AmyAdams">
 			<div class="blog-info-myclinic second-info">
 				<h6>Amy Adams</h6>
 				<div class="inner-info">
@@ -182,7 +212,7 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
-		<div class="blog-grid-w3-agileits">
+		<div class="blog-grid-w3-agileits" id="LacySmith">
 			<div class="blog-info-myclinic second-info">
 				<h6>Lacy Smith</h6>
 				<div class="inner-info">
