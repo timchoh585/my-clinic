@@ -25,6 +25,14 @@ ul,label{
 body a:hover{
 	text-decoration:none;
 }
+
+#searchInput{
+    padding: 6px;
+    margin-bottom: 16px;
+    font-size: 17px;
+    border: 1px solid #000;
+}
+
 .bg {
     background: #fff;
 }
