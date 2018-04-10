@@ -1,0 +1,24 @@
+{
+  "notifications": [
+    {
+      "message": "Checkup with Janice Z",
+      "urgency": "standard"
+    },
+    {
+      "message": "Meeting with board",
+      "urgency": "standard"
+    },
+    {
+      "message": "Lunch meeting with head surgeon",
+      "urgency": "urgent"
+    },
+    {
+      "message": "Meet with resident",
+      "urgency": "standard"
+    },
+    {
+      "message": "Surgery seminar",
+      "urgency": "optional"
+    }
+  ]
+}

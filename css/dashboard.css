@@ -1,0 +1,20 @@
+.dashboard{
+    /* height:30vh; */
+    height: auto;
+    max-height: 50vh;
+    /* padding-bottom: 40%; */
+    /* overflow-y: auto;
+    overflow-x: hidden; */
+    overflow: hidden;
+}
+.notification {
+  /* border: 1px solid black !important; */
+  text-align: center !important;
+  font-weight: bold !important;
+  margin-bottom: 0px !important;
+}
+.alert-dark {
+  color: #1b1e21;
+  background-color: #d6d8d9;
+  border-color: #c6c8ca;
+}
