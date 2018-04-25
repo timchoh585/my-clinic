@@ -10,6 +10,7 @@
 <!-- //For-Mobile-Apps-and-Meta-Tags -->
 <!-- Custom Theme files -->
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/cards.css" type="text/css" rel="stylesheet" media="all">
 <link rel="stylesheet" type="text/css" href="css/style11.css" /><!-- menu style sheet -->
 <link href="css/style.css" type="text/css" rel="stylesheet" media="all"> 
 <!-- //Custom Theme files -->
@@ -21,6 +22,7 @@
 <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- //web-fonts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
 var patientList = ["JuliaJameson", "MaxTurner", "AmyAdams", "LacySmith", "DennisLe"];
@@ -33,7 +35,6 @@ function onSearchInput() {
     input = document.getElementById('searchInput');
     filter = input.value.toUpperCase();
     filter = filter.replace(/\s+/g, '');
-    console.log(filter);
 
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < patientList.length; i++) {
@@ -45,6 +46,33 @@ function onSearchInput() {
     	else{
     		d.style.display = "none";
     	}
+    }
+}
+
+
+// When the user clicks on the button, open the modal 
+$(document).on('click', "#addBtn", function(evt)
+{
+	console.log("click");
+	console.log(document.getElementById('patientForm'));
+	var modal = document.getElementById('patientForm');
+    modal.style.display = "block";
+});
+
+// When the user clicks on <span> (x), close the modal
+$(document).on('click', "#closeBtn", function(evt)
+{
+	console.log("close");
+	var modal = document.getElementById('patientForm');
+   	modal.style.display = "none";
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	var modal = document.getElementById('patientForm');
+
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
 }
 
@@ -170,69 +198,89 @@ function onSearchInput() {
 <div class="blog" id="blog">
 	<div class="container">
 	<h4 class="tittle-myclinic">Your Patients</h4>
+
 	<div id="searchBar">
 	<input type="text" id="searchInput" placeholder="Search.." onkeyup="onSearchInput()" />
 	</div>
-		<div class="blog-grid-w3-agileits" id="JuliaJameson">
-			<div class="blog-info-myclinic">
-				<h6>Julia Jameson</h6>
-				<div class="inner-info">
-					<h3>Room: 105</h3>
-					<p class="para-wthree">Julia came in with a fever. No medication given yet.</p>
-				</div>
-				<a href="single.html"class="blog-more-agile" >Read More</a>
-			
-			</div>
-			<div class="clearfix"></div>
+
+	<div>
+	<button id="addBtn">Add Patient</button>
+	</div>
+
+		<div class="card" id="JuliaJameson">
+		  <h5 class="card-header">Julia Jameson</h5>
+		  <div class="card-body">
+		    <h5 class="card-title">Room: 105</h5>
+		    <p class="card-text" id="txt1">Julia came in with a fever. No medication given yet.</p>
+		    <a href="single.html" class="btn btn-primary">Read More</a>
+		  </div>
 		</div>
-		<div class="blog-grid-w3-agileits" id="MaxTurner">
-			<div class="blog-info-myclinic">
-				<h6>Max Turner</h6>
-				<div class="inner-info">
-					<h3>Room: 201</h3>
-					<p class="para-wthree">Max has a broken leg and has not been in for surgery yet.</p>
-				</div>
-				<a href="single.html"class="blog-more-agile" >Read More</a>
-			
-			</div>
-			<div class="clearfix"></div>
+
+		<div class="card" id="MaxTurner">
+		  <h5 class="card-header">Max Turner</h5>
+		  <div class="card-body">
+		    <h5 class="card-title">Room: 210</h5>
+		    <p class="card-text" id="txt1">Max has a broken leg and has not been in for surgery yet.</p>
+		    <a href="single.html" class="btn btn-primary">Read More</a>
+		  </div>
 		</div>
-		<div class="blog-grid-w3-agileits" id="AmyAdams">
-			<div class="blog-info-myclinic">
-				<h6>Amy Adams</h6>
-				<div class="inner-info">
-					<h3>Room: 422</h3>
-					<p class="para-wthree">In for cancer treatments. Has been on radiation treatments for 3 months.</p>
-				</div>
-				<a href="single.html"class="blog-more-agile" >Read More</a>
-			
-			</div>
-			<div class="clearfix"></div>
+
+		<div class="card" id="AmyAdams">
+		  <h5 class="card-header">Amy Adams</h5>
+		  <div class="card-body">
+		    <h5 class="card-title">Room: 126</h5>
+		    <p class="card-text" id="txt1">In for cancer treatments. Has been on radiation treatments for 3 months.</p>
+		    <a href="single.html" class="btn btn-primary">Read More</a>
+		  </div>
 		</div>
-		<div class="blog-grid-w3-agileits" id="LacySmith">
-			<div class="blog-info-myclinic">
-				<h6>Lacy Smith</h6>
-				<div class="inner-info">
-					<h3>Room: 440</h3>
-					<p class="para-wthree">Shows early stages of cancer. Need an MRI and CAT scan.</p>
-				</div>
-				<a href="single.html"class="blog-more-agile" >Read More</a>
-			
-			</div>
-			<div class="clearfix"></div>
+
+		<div class="card" id="LacySmith">
+		  <h5 class="card-header">Lacy Smith</h5>
+		  <div class="card-body">
+		    <h5 class="card-title">Room: 165</h5>
+		    <p class="card-text" id="txt1">Shows early stages of cancer. Need an MRI and CAT scan.</p>
+		    <a href="single.html" class="btn btn-primary">Read More</a>
+		  </div>
 		</div>
-		<div class="blog-grid-w3-agileits" id="DennisLe">
-			<div class="blog-info-myclinic">
-				<h6>Dennis Le</h6>
-				<div class="inner-info">
-					<h3>Room: 540</h3>
-					<p class="para-wthree">Comatosed patient for 8 months.</p>
-				</div>
-				<a href="single.html"class="blog-more-agile" >Read More</a>
-			
-			</div>
-			<div class="clearfix"></div>
+
+		<div class="card" id="DennisLe">
+		  <h5 class="card-header">Dennis Le</h5>
+		  <div class="card-body">
+		    <h5 class="card-title">Room: 301</h5>
+		    <p class="card-text" id="txt1">Comatosed patient for 8 months.</p>
+		    <a href="single.html" class="btn btn-primary">Read More</a>
+		  </div>
 		</div>
+	</div>
+</div>
+
+<div id="patientForm" class="modal">
+	<div class="modal-dialog" role="document">
+
+	<div class = "modal-content" id="formBox">
+	<span class="close" id="closeBtn">&times;</span>
+		<div class="appointment">
+		   <div class="container">
+			<div class="form-agileits">
+			<h3>Register Patient</h3>
+			<form action="#" method="post">
+				<input  class="name" type="text" name="Patient Name" placeholder="Patient Name" required=""/>
+				<input type="text" name="Number" placeholder="Number" required=""/>
+				<input class="name" type="email" name="Email" placeholder="Email" required=""/>
+				<input  id="datepicker1" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" placeholder="mm/dd/yyyy" required="">
+				<select class="form-control">
+					<option>Gender</option>
+					<option>Male</option>
+					<option>Female</option>
+				</select>
+				 <input type="submit" value="Make an appointment">
+			</form>
+			</div>
+			</div>
+			
+			<div class="clearfix"> </div>
+		</div>
+	</div>
 	</div>
 </div>
 
