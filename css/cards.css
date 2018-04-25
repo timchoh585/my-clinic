@@ -7,9 +7,24 @@
 }
 
 #myForm{
-  width: 60%;
+  width: 65%;
   border-width: 1px;
   border-color: #000;
+}
+
+#searchBar{
+  padding-right: 50px;
+}
+
+#addBtn{
+  width: 200px;
+  height: 40px;
+  font-size: 17px;
+  background-color: #3F51B5;
+}
+
+.parent1{
+  padding-bottom: 40px;
 }
 
 .card {

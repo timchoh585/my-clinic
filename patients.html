@@ -199,12 +199,14 @@ window.onclick = function(event) {
 	<div class="container">
 	<h4 class="tittle-myclinic">Your Patients</h4>
 
-	<div id="searchBar">
-	<input type="text" id="searchInput" placeholder="Search.." onkeyup="onSearchInput()" />
-	</div>
+	<div class = "parent1">
+		<div style="float: left" id="searchBar">
+		<input type="text" id="searchInput" placeholder="Search.." onkeyup="onSearchInput()" />
+		</div>
 
-	<div>
-	<button id="addBtn">Add Patient</button>
+		<div style="display: inline">
+		<button id="addBtn" class="btn btn-primary">Add Patient<span style="padding-left: 10px" class="glyphicon glyphicon-plus"></span></button>
+		</div>
 	</div>
 
 		<div class="card" id="JuliaJameson">
@@ -267,8 +269,8 @@ window.onclick = function(event) {
 			<form action="#" method="post">
 				<input  class="name" type="text" name="Patient Name" placeholder="Patient Name" required=""/>
 				<input type="text" name="Number" placeholder="Room Number" required=""/>
-				<input class="name" type="email" name="Email" placeholder="Email" required=""/>
-				<input  id="datepicker1" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" placeholder="mm/dd/yyyy" required="">
+				<input class="name" type="text" name="Summary" placeholder="Patient Summary" required=""/>
+				<input  id="datepicker1" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" placeholder="Birthday mm/dd/yyyy" required="">
 				<select class="form-control">
 					<option>Gender</option>
 					<option>Male</option>
