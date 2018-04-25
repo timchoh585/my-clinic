@@ -13,7 +13,18 @@
 }
 
 #searchBar{
+  padding-top: 2px;
   padding-right: 50px;
+}
+
+#mainArea{
+  font-family: 'Roboto', sans-serif;
+}
+
+.rounded { 
+    border-radius:15px; 
+    -moz-border-radius:15px; 
+    -webkit-border-radius:15px; 
 }
 
 #addBtn{
