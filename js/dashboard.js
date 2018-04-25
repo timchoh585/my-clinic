@@ -4,8 +4,9 @@ $(document).ready(function(){
   for(i=0; i<notification_list.length; i++){
     var msg = notification_list[i].message;
     var alertType = mapToBootstrapAlert(notification_list[i].urgency);
-    var div1 = $('<div class="col-md-auto notification alert ' + alertType + ' alert-dismissible" role="alert">' + msg + '</div>');
-    var closeButton = $('<button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>');
+    var time = notification_list[i].time;
+    var div1 = $('<div class="col-md-auto notification alert ' + alertType + ' alert-dismissible" role="alert">' + msg + ' (' + time + ')'+'</div>');
+    var closeButton = $('<button type="button" class="close" data-dismiss="alert" aria-label="Close" style="right:0px !important;"></button>');
     var span = closeButton.append($('<span aria-hidden="true">&times;</span>'));
     div1.append(closeButton);
     $('#dash').append(div1);
@@ -15,17 +16,17 @@ $(document).ready(function(){
     var mappedVal = "";
     switch(urgency) {
     case "standard":
-        mappedVal = "alert-info" ;
+        mappedVal = "alert-reg" ;
         break;
     case "urgent":
-        mappedVal = "alert-danger";
+        mappedVal = "alert-urgent";
         break;
-    case "optional":
-        mappedVal = "alert-dark"
+    case "upcoming":
+        mappedVal = "alert-upcoming"
         break;
 
     default:
-        text = "alert-info";
+        text = "alert-reg";
 }
 return mappedVal;
   }

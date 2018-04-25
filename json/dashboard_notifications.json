@@ -2,23 +2,28 @@
   "notifications": [
     {
       "message": "Checkup with Janice Z",
-      "urgency": "standard"
+      "urgency": "urgent",
+      "time": "15 minutes"
     },
     {
       "message": "Meeting with board",
-      "urgency": "standard"
+      "urgency":"upcoming",
+      "time": "45 minutes"
     },
     {
       "message": "Lunch meeting with head surgeon",
-      "urgency": "urgent"
+      "urgency": "standard",
+      "time": "1h 45m"
     },
     {
       "message": "Meet with resident",
-      "urgency": "standard"
+      "urgency": "standard",
+      "time": "3h"
     },
     {
       "message": "Surgery seminar",
-      "urgency": "optional"
+      "urgency": "standard",
+      "time": "5h"
     }
   ]
 }
