@@ -257,15 +257,16 @@ window.onclick = function(event) {
 <div id="patientForm" class="modal">
 	<div class="modal-dialog" role="document">
 
-	<div class = "modal-content" id="formBox">
-	<span class="close" id="closeBtn">&times;</span>
-		<div class="appointment">
-		   <div class="container">
-			<div class="form-agileits">
+	<div class = "modal-content">
+		    <div class="container" id="formCnt"> 
+
+			<div class="form-agileits" id="myForm">
+			<span class="close" id="closeBtn">&times;</span>
+
 			<h3>Register Patient</h3>
 			<form action="#" method="post">
 				<input  class="name" type="text" name="Patient Name" placeholder="Patient Name" required=""/>
-				<input type="text" name="Number" placeholder="Number" required=""/>
+				<input type="text" name="Number" placeholder="Room Number" required=""/>
 				<input class="name" type="email" name="Email" placeholder="Email" required=""/>
 				<input  id="datepicker1" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" placeholder="mm/dd/yyyy" required="">
 				<select class="form-control">
@@ -273,13 +274,12 @@ window.onclick = function(event) {
 					<option>Male</option>
 					<option>Female</option>
 				</select>
-				 <input type="submit" value="Make an appointment">
+				 <input type="submit" value="Add Patient">
 			</form>
-			</div>
-			</div>
+			</div> 
 			
 			<div class="clearfix"> </div>
-		</div>
+		</div> 
 	</div>
 	</div>
 </div>

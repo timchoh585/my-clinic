@@ -2,10 +2,14 @@
   margin-bottom: 10px;
 }
 
-#formBox{
-  width: 100%;
-  height: 100%;
+#formCnt{
+  padding-left: 0px;
+}
 
+#myForm{
+  width: 60%;
+  border-width: 1px;
+  border-color: #000;
 }
 
 .card {
