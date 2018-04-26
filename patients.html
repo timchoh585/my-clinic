@@ -54,10 +54,49 @@ function onSearchInput() {
 // When the user clicks on the button, open the modal 
 $(document).on('click', "#addBtn", function(evt)
 {
+	var name = document.getElementById("nameTxt").value = "";
+    var roomNum = document.getElementById("roomTxt").value = "";
+    var gender = document.getElementById("genderTxt").value = "Gender";
+    var summary = document.getElementById("summaryTxt").value = "";
+    var birthday = document.getElementById("datepicker1").value = "";
+
 	console.log("click");
 	console.log(document.getElementById('patientForm'));
 	var modal = document.getElementById('patientForm');
     modal.style.display = "block";
+
+});
+
+$(document).on('click', "#addBtn2", function(evt)
+{
+	evt.preventDefault();
+
+	console.log("submit");
+    var name = document.getElementById("nameTxt").value;
+    var roomNum = document.getElementById("roomTxt").value;
+    var gender = document.getElementById("genderTxt").value;
+    var summary = document.getElementById("summaryTxt").value;
+    var birthday = document.getElementById("datepicker1").value;
+    console.log(name + " " + roomNum + " " + gender + " " + summary + " " + birthday);
+
+    var modal = document.getElementById('patientForm');
+   	modal.style.display = "none";
+
+	patientList.push(name.replace(/\s+/g, ''));
+
+	var div = document.createElement('div');
+	div.setAttribute('class', 'card');
+	div.setAttribute('id', name.replace(/\s+/g, ''));
+	div.innerHTML = `
+		<h5 class="card-header">${name}</h5>
+		  <div class="card-body">
+		    <h5 class="card-title">Room: ${roomNum}</h5>
+		    <p class="card-text" id="txt1">${summary}</p>
+		    <a href="single.html" class="btn btn-primary">Read More</a>
+		 </div>
+	`;
+	document.getElementById('mainArea').appendChild(div);	
+
 });
 
 // When the user clicks on <span> (x), close the modal
@@ -268,11 +307,11 @@ window.onclick = function(event) {
 
 			<h3>Register Patient</h3>
 			<form action="#" method="post">
-				<input  class="name" type="text" name="Patient Name" placeholder="Patient Name" required=""/>
-				<input type="text" name="Number" placeholder="Room Number" required=""/>
-				<input class="name" type="text" name="Summary" placeholder="Patient Summary" required=""/>
+				<input  id="nameTxt" class="name" type="text" name="Patient Name" placeholder="Patient Name" required=""/>
+				<input id="roomTxt" type="text" name="Number" placeholder="Room Number" required=""/>
+				<input id="summaryTxt" class="name" type="text" name="Summary" placeholder="Patient Summary" required=""/>
 				<input  id="datepicker1" name="Text" type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" placeholder="Birthday mm/dd/yyyy" required="">
-				<select class="form-control">
+				<select id="genderTxt" class="form-control">
 					<option>Gender</option>
 					<option>Male</option>
 					<option>Female</option>

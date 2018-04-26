@@ -21,6 +21,10 @@
   font-family: 'Roboto', sans-serif;
 }
 
+#searchInput:focus {
+    outline: none;
+}
+
 .rounded { 
     border-radius:15px; 
     -moz-border-radius:15px; 
