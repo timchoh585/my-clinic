@@ -156,34 +156,33 @@
 						<div class="blog-left">
 							<div class="single-left-left">
 								<p>Posted By <a href="#">Nurse 2</a> &nbsp;&nbsp; on Feb 28, 2018 &nbsp;&nbsp; <a href="#">Comments (3)</a></p>
-								<img src="images/b1.jpg" alt="" />
+								<img src="images/healing_glue.jpg" alt="" />
 							</div>
 							<div class="blog-left-bottom">
 								<p>
-								There is a patient who would like to schedule an appointment with you regarding his dislocated shoulder.
+								<h2>Scientists Have Developed Surgical Glue That Seals Wounds in 60 Seconds</h2>
 								
 								</p>
 							</div>
 							<div class="blog-left-bottom left-bottom">
-								<p> The patient is still experiencing shoulder pain throughout the day. It is also difficult to continue physical therapy.
-								</p>
+								<!-- leave empty -->
 							</div>
 						</div>
 						<!---728x90--->
-						<div class="response">
+						<div class="response" id="response">
 							<h3>Responses</h3>
 							<div class="media response-info">
 								<div class="media-left response-text-left">
 									<a href="#">
-										<img class="media-object" src="images/t1.jpg" alt="">
+										<img class="media-object" src="images/t3.jpg" alt="">
 									</a>
-									<h5><a href="#">Nurse 1</a></h5>
+									<h5><a href="#">Doctor 1</a></h5>
 								</div>
 								<div class="media-body response-text-right">
-									<p>Schedule an appointment with him for an MRI.</p>
+									<p>Wow! When will this be a standard at our hospital?</p>
 									<ul>
-										<li>Feb 28, 2018</li>
-										<li><a href="single.html">Reply</a></li>
+										<li>2/28/2018</li>
+										<!-- <li><a href="" id="reply">Reply</a></li> -->
 									</ul>
 									<div class="media response-info">
 										<div class="media-left response-text-left">
@@ -193,10 +192,10 @@
 											<h5><a href="#">Nurse 2</a></h5>
 										</div>
 										<div class="media-body response-text-right">
-											<p>The next available date is 2 weeks from now on March 8th.</p>
+											<p>This should be released to all the hospitals by next year.</p>
 											<ul>
-												<li>Feb 28, 2018</li>
-												<li><a href="single.html">Reply</a></li>
+												<li>2/28/2018</li>
+												<!-- <li><a href="" id="reply">Reply</a></li> -->
 											</ul>		
 										</div>
 										<div class="clearfix"> </div>
@@ -209,14 +208,23 @@
 									<a href="#">
 										<img class="media-object" src="images/t1.jpg" alt="">
 									</a>
-									<h5><a href="#">Nurse 1</a></h5>
+									<h5><a href="#">Nurse 2</a></h5>
 								</div>
 								<div class="media-body response-text-right">
-									<p>Ok, please go ahead and schedule the appointment.</p>
+									<p>I've been waiting for this for years!</p>
 									<ul>
-										<li>Feb 28, 2018</li>
-										<li><a href="single.html">Reply</a></li>
-									</ul>		
+										<li>2/28/2018</li>
+										<!-- <li><a href="" id="reply">Reply</a></li> -->
+																			
+										<form action="#" method="post">
+											<li><input type="text" name="Name" placeholder="Name" required="" id="replyPostName"> </li>
+											<li><textarea name="Message" placeholder="Message" required="" id="replyPostMessage"></textarea> </li>
+											<input type="submit" value="Reply" id="reply">
+										</form>
+										
+									</ul>	
+
+									
 								</div>
 								<div class="clearfix"> </div>
 							</div>
@@ -225,10 +233,10 @@
 						<div class="opinion">
 							<h3>Leave your comment</h3>
 							<form action="#" method="post">
-								<input type="text" name="Name" placeholder="Name" required="">
+								<input type="text" name="Name" placeholder="Name" required="" id="postName">
 								<input type="email" name="Email" placeholder="Email" required="">
-								<textarea name="Message" placeholder="Message" required=""></textarea>
-								<input type="submit" value="SEND">
+								<textarea name="Message" placeholder="Message" required="" id="postMessage"></textarea>
+								<input type="submit" value="SEND" id="post">
 							</form>
 						</div>
 					</div>
@@ -260,6 +268,54 @@
 	</div>
 </div>
 <!-- //footer -->
+
+<!-- js for blog-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).on('click',"#post",function(evt){
+		evt.preventDefault();
+		
+		console.log("message");
+	
+		//alert("testing submit alert");
+		
+		var div = document.createElement('div');
+		div.setAttribute('class', "media response-info");
+		var name = document.getElementById("postName").value;
+		var message = document.getElementById("postMessage").value;
+		
+		div.innerHTML = `
+			<div class="media-left response-text-left">
+				<a href="#">
+				<img class="media-object" src="images/no_picture.jpg" alt="">
+				</a>
+				<h5><a href="#"> ${name}</a></h5>
+			</div>
+			<div class="media-body response-text-right">
+				<p> ${message}</p>
+				<ul>
+				<li> ${new Date().toLocaleDateString()}</li>
+				<li><a href="single.html">Reply</a></li>
+				</ul>
+			</div>
+	
+		`;
+		document.getElementById('response').appendChild(div);
+		
+		
+	});
+</script>
+
+<!-- script for reply blog -->
+<script>
+	$(document).on('click', "#reply", function(evt){
+		evt.preventDefault();
+		alert("testing reply");
+	
+	)};
+
+
+</script>
 
 <!-- js -->
 <script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
