@@ -77,7 +77,7 @@ $(document).on('click', "#addBtn2", function(evt)
     var gender = document.getElementById("genderTxt").value;
     var summary = document.getElementById("summaryTxt").value;
     var birthday = document.getElementById("datepicker1").value;
-    console.log(name + " " + roomNum + " " + gender + " " + summary + " " + birthday);
+    //console.log(name + " " + roomNum + " " + gender + " " + summary + " " + birthday);
 
     var modal = document.getElementById('patientForm');
    	modal.style.display = "none";
@@ -90,11 +90,25 @@ $(document).on('click', "#addBtn2", function(evt)
 	div.innerHTML = `
 		<h5 class="card-header">${name}</h5>
 		  <div class="card-body">
-		    <h5 class="card-title">Room: ${roomNum}</h5>
-		    <p class="card-text" id="txt1">${summary}</p>
-		    <a href="single.html" class="btn btn-primary">Read More</a>
-		 </div>
-	`;
+		     <table>
+                <tr style="font-weight:bold">
+                    <td>Room</td>
+                    <td>Birthday</td>
+                    <td>Gender</td>
+                </tr>
+                <tr>
+                    <td>${roomNum}</td>
+                    <td>${birthday}</td>
+                    <td>${gender}</td>
+                </tr>
+           </table>
+		    <p class="card-text" style="padding-top: 10px" id="txt1"><b>Summary: </b>${summary}</p>
+		    <a href="single.html" id="readBtn" class="btn btn-primary">Read More</a>
+		  </div>
+
+		`
+	;
+
 	document.getElementById('mainArea').appendChild(div);	
 
 });
@@ -252,47 +266,104 @@ window.onclick = function(event) {
 		<div class="card" id="JuliaJameson">
 		  <h5 class="card-header">Julia Jameson</h5>
 		  <div class="card-body">
-		    <h5 class="card-title">Room: 105</h5>
-		    <p class="card-text" id="txt1">Julia came in with a fever. No medication given yet.</p>
-		    <a href="single.html" class="btn btn-primary">Read More</a>
+		     <table>
+                <tr style="font-weight:bold">
+                    <td>Room</td>
+                    <td>Birthday</td>
+                    <td>Gender</td>
+                </tr>
+                <tr>
+                    <td>120</td>
+                    <td>09/23/93</td>
+                    <td>Female</td>
+                </tr>
+           </table>
+		    <p class="card-text" style="padding-top: 10px" id="txt1"><b>Summary: </b>Julia came in with a fever. No medication given yet.</p>
+		    <a href="single.html" id="readBtn" class="btn btn-primary">Read More</a>
 		  </div>
 		</div>
 
 		<div class="card" id="MaxTurner">
 		  <h5 class="card-header">Max Turner</h5>
 		  <div class="card-body">
-		    <h5 class="card-title">Room: 210</h5>
-		    <p class="card-text" id="txt1">Max has a broken leg and has not been in for surgery yet.</p>
-		    <a href="single.html" class="btn btn-primary">Read More</a>
+		    <table>
+                <tr style="font-weight:bold">
+                    <td>Room</td>
+                    <td>Birthday</td>
+                    <td>Gender</td>
+                </tr>
+                <tr>
+                    <td>210</td>
+                    <td>03/12/95</td>
+                    <td>Male</td>
+                </tr>
+           </table>
+		    <p class="card-text" style="padding-top: 10px" id="txt1"><b>Summary: </b>Max has a broken leg and has not been in for surgery yet.</p>
+		    <a href="single.html" id="readBtn" class="btn btn-primary">Read More</a>
 		  </div>
 		</div>
 
 		<div class="card" id="AmyAdams">
 		  <h5 class="card-header">Amy Adams</h5>
 		  <div class="card-body">
-		    <h5 class="card-title">Room: 126</h5>
-		    <p class="card-text" id="txt1">In for cancer treatments. Has been on radiation treatments for 3 months.</p>
-		    <a href="single.html" class="btn btn-primary">Read More</a>
-		  </div>
+			  <table>
+	                <tr style="font-weight:bold">
+	                    <td>Room</td>
+	                    <td>Birthday</td>
+	                    <td>Gender</td>
+	                </tr>
+	                <tr>
+	                    <td>104</td>
+	                    <td>01/03/82</td>
+	                    <td>Female</td>
+	                </tr>
+	           </table>
+			    <p class="card-text" style="padding-top: 10px" id="txt1"><b>Summary: </b>In for cancer treatments. Has been on radiation treatments for 3 months.</p>
+			    <a href="single.html" id="readBtn" class="btn btn-primary">Read More</a>
+		    </div>
 		</div>
 
 		<div class="card" id="LacySmith">
 		  <h5 class="card-header">Lacy Smith</h5>
 		  <div class="card-body">
-		    <h5 class="card-title">Room: 165</h5>
-		    <p class="card-text" id="txt1">Shows early stages of cancer. Need an MRI and CAT scan.</p>
-		    <a href="single.html" class="btn btn-primary">Read More</a>
+		    <table>
+	                <tr style="font-weight:bold">
+	                    <td>Room</td>
+	                    <td>Birthday</td>
+	                    <td>Gender</td>
+	                </tr>
+	                <tr>
+	                    <td>232</td>
+	                    <td>11/21/65</td>
+	                    <td>Female</td>
+	                </tr>
+	           </table>
+			    <p class="card-text" style="padding-top: 10px" id="txt1"><b>Summary: </b>Shows early stages of cancer. Need an MRI and CAT scan.</p>
+			    <a href="single.html" id="readBtn" class="btn btn-primary">Read More</a>
 		  </div>
 		</div>
 
 		<div class="card" id="DennisLe">
 		  <h5 class="card-header">Dennis Le</h5>
 		  <div class="card-body">
-		    <h5 class="card-title">Room: 301</h5>
-		    <p class="card-text" id="txt1">Comatosed patient for 8 months.</p>
-		    <a href="single.html" class="btn btn-primary">Read More</a>
+		    <table>
+	                <tr style="font-weight:bold">
+	                    <td>Room</td>
+	                    <td>Birthday</td>
+	                    <td>Gender</td>
+	                </tr>
+	                <tr>
+	                    <td>300</td>
+	                    <td>06/11/72</td>
+	                    <td>Male</td>
+	                </tr>
+	           </table>
+			    <p class="card-text" style="padding-top: 10px" id="txt1"><b>Summary: </b>Comatosed patient for 8 months.</p>
+			    <a href="single.html" id="readBtn" class="btn btn-primary">Read More</a>
 		  </div>
 		</div>
+
+
 	</div>
 </div>
 

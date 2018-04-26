@@ -33,6 +33,7 @@ body a:hover{
     border: 1px solid #000;
 }
 
+
 .bg {
     background: #fff;
 }
@@ -674,7 +675,7 @@ a.opt-grids {
 /*--//Options--*/
 /*--about-inner--*/
 .inner-banner-agileits-myclinic{
-	background: url(../images/banner1.jpg) no-repeat 0px 0px;
+	background: url(../images/patientsBanner3.jpg) no-repeat 0px -40px;
 	background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
