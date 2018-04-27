@@ -141,31 +141,16 @@
 	<div class="blog">
 			<!-- container -->
 			<div class="container">
-			
-				<div class="col-md-4 blog-top-right-grid">
-					<div class="Categories stand-w3ls">
-						<h3>Recent News</h3>
-						<ul>
-							<li><a target="_blank" href="https://www.medicalnewstoday.com/articles/313181.php">Ultrasmall nanoparticles kill cancer cells in unusual way</a><span class="glyphicon glyphicon glyphicon-time" aria-hidden="true"> May 2018</span></li>
-							<li><a target="_blank" href="https://www.medicalnewstoday.com/articles/307685.php">Eye lens regeneration from own stem cells </a><span class="glyphicon glyphicon glyphicon-time" aria-hidden="true"> June 2018</span></li>
-						</ul>
-					</div>
-				</div>
 				<div class="col-md-8 blog-top-left-grid">
 					<div class="left-blog left-single">
 						<div class="blog-left">
-							<div class="single-left-left">
-								<p>Posted By <a href="#">Nurse 2</a> &nbsp;&nbsp; on Feb 28, 2018 &nbsp;&nbsp; <a href="#">Comments (3)</a></p>
-								<img src="images/healing_glue.jpg" alt="" />
-							</div>
 							<div class="blog-left-bottom">
 								<p>
-								<h2>Scientists Have Developed Surgical Glue That Seals Wounds in 60 Seconds</h2>
-								
+								<h2>Conversations</h2>								
 								</p>
 							</div>
 							<div class="blog-left-bottom left-bottom">
-								<p>More information can be found <a target="_blank" href="https://www.sciencealert.com/this-incredible-surgical-glue-heals-wounds-faster-than-ever-before">here</a></p>
+								
 							</div>
 						</div>
 						<!---728x90--->
@@ -178,11 +163,15 @@
 									</a>
 									<h5><a href="#">Doctor 1</a></h5>
 								</div>
-								<div class="media-body response-text-right">
-									<p>Wow! When will this be a standard at our hospital?</p>
+								<div class="media-body response-text-right" id="c1">
+									<p>Who is oncall for the next week?</p>
 									<ul>
 										<li>2/28/2018</li>
 										<!-- <li><a href="" id="reply">Reply</a></li> -->
+											<form action="#" method="post">
+											<input type="text" name="Name" placeholder="Name" required="" id="replyPostName1">
+											<textarea name="Message" placeholder="Message" required="" id="replyPostMessage1"></textarea>
+											<input type="submit" value="Reply" id="replyPost1">
 									</ul>
 									<div class="media response-info">
 										<div class="media-left response-text-left">
@@ -191,11 +180,16 @@
 											</a>
 											<h5><a href="#">Nurse 2</a></h5>
 										</div>
-										<div class="media-body response-text-right">
-											<p>This should be released to all the hospitals by next year.</p>
+										<div class="media-body response-text-right" id="c2">
+											<p>Doctor Fernandez </p>
 											<ul>
 												<li>2/28/2018</li>
 												<!-- <li><a href="" id="reply">Reply</a></li> -->
+												<form action="#" method="post">
+												<input type="text" name="Name" placeholder="Name" required="" id="replyPostName2">
+												<textarea name="Message" placeholder="Message" required="" id="replyPostMessage2"></textarea>
+												<input type="submit" value="Reply" id="replyPost2">
+										</form>
 											</ul>		
 										</div>
 										<div class="clearfix"> </div>
@@ -210,11 +204,16 @@
 									</a>
 									<h5><a href="#">Nurse 2</a></h5>
 								</div>
-								<div class="media-body response-text-right">
-									<p>I've been waiting for this for years!</p>
+								<div class="media-body response-text-right" id="c3">
+									<p>Can someone cover my shift tomorrow?</p>
 									<ul>
 										<li>2/28/2018</li>
 										<!-- <li><a href="" id="reply">Reply</a></li> -->
+										<form action="#" method="post">
+											<input type="text" name="Name" placeholder="Name" required="" id="replyPostName3">
+											<textarea name="Message" placeholder="Message" required="" id="replyPostMessage3"></textarea>
+											<input type="submit" value="Reply" id="replyPost3">
+										</form>
 									</ul>	
 
 									
@@ -224,12 +223,11 @@
 						</div>
 						<!---728x90--->
 						<div class="opinion">
-							<h3>Leave your comment</h3>
+							<h3>Start a new Conversation</h3>
 							<form action="#" method="post">
 								<input type="text" name="Name" placeholder="Name" required="" id="postName">
-								<input type="email" name="Email" placeholder="Email" required="">
 								<textarea name="Message" placeholder="Message" required="" id="postMessage"></textarea>
-								<input type="submit" value="SEND" id="post">
+								<input type="submit" value="Send" id="post">
 							</form>
 						</div>
 					</div>
@@ -264,7 +262,9 @@
 
 <!-- js for blog-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script>
+/*  used to start a new conversation but replacing with something else. currently testing
 	$(document).on('click',"#post",function(evt){
 		evt.preventDefault();
 		
@@ -288,7 +288,11 @@
 				<p> ${message}</p>
 				<ul>
 				<li> ${new Date().toLocaleDateString()}</li>
-				<li><a href="single.html">Reply</a></li>
+					<form action="#" method="post">
+						<input type="text" name="Name" placeholder="Name" required="" id="replyPostName">
+						<textarea name="Message" placeholder="Message" required="" id="replyPostMessage"></textarea>
+						<input type="submit" value="Reply" id="replyPost">
+					</form>
 				</ul>
 			</div>
 	
@@ -297,17 +301,88 @@
 		
 		
 	});
+*/
 </script>
 
 <!-- script for reply blog -->
 <script>
-	$(document).on('click', "#reply", function(evt){
-		evt.preventDefault();
-		alert("testing reply");
+function replyMessageFunction(convo, replyName, replyMessage){
+	//alert("replyMessageFunction alert");
+	var div = document.createElement('div');
+	div.setAttribute('class', "media response-info");
+	var name = replyName;
+	var message = replyMessage;
+	div.innerHTML = `
+		<div class="media-left response-text-left">
+			<a href="#">
+			<img class="media-object" src="images/no_picture.jpg" alt="">
+			</a>
+			<h5><a href="#"> ${name}</a></h5>
+		</div>
+		<div class="media-body response-text-right">
+			<p> ${message}</p>
+			<ul>
+				<li> ${new Date().toLocaleDateString()}</li>
+				<li> Reply </li>
+			</ul>
+		</div>
 	
-	)};
+		`;
+		document.getElementById(convo).appendChild(div);
 
+}
 
+</script>
+
+<script>
+	<!-- new conversation -->
+	$(document).on('click', "#post", function(evt){
+		evt.preventDefault();
+		var newName = document.getElementById("postName").value;
+		var newMessage = document.getElementById("postMessage").value;
+		replyMessageFunction("response",newName,newMessage);
+	
+	});
+
+	<!-- hard coded response #1 -->
+	$(document).on('click', "#replyPost1", function(evt){
+		evt.preventDefault();
+		//alert("testing reply");
+		
+		console.log("reply message");
+		var replyName = document.getElementById("replyPostName1").value;
+		var replyMessage = document.getElementById("replyPostMessage1").value;
+		var convoNumber = "c1";
+		replyMessageFunction(convoNumber,replyName,replyMessage);
+	
+	});
+	<!-- hard coded response #2	-->
+	$(document).on('click', "#replyPost2", function(evt){
+		evt.preventDefault();
+		//alert("testing reply");
+		
+		console.log("reply message");
+		var replyName = document.getElementById("replyPostName2").value;
+		var replyMessage = document.getElementById("replyPostMessage2").value;
+		var convoNumber = "c2";
+		replyMessageFunction(convoNumber,replyName,replyMessage);
+	
+	});
+	<!-- hard coded response #3 -->
+	$(document).on('click', "#replyPost3", function(evt){
+		evt.preventDefault();
+		//alert("testing reply");
+		
+		console.log("reply message");
+		var replyName = document.getElementById("replyPostName3").value;
+		var replyMessage = document.getElementById("replyPostMessage3").value;
+		var convoNumber = "c3";
+		replyMessageFunction(convoNumber,replyName,replyMessage);
+
+	});
+	
+	
+	
 </script>
 
 <!-- js -->
