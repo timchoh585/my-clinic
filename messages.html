@@ -131,7 +131,7 @@
 			<ul>
 				<li><a href="index.html">Home</a><span>«</span></li>
 									
-				<li>Conversation</li>
+				<li>Messages</li>
 				</ul>
 		</div>
 	</div>
@@ -146,7 +146,7 @@
 						<div class="blog-left">
 							<div class="blog-left-bottom">
 								<p>
-								<h2>Conversations</h2>								
+								<h2>Messages</h2>								
 								</p>
 							</div>
 							<div class="blog-left-bottom left-bottom">
@@ -171,7 +171,8 @@
 											<form action="#" method="post">
 											<input type="text" name="Name" placeholder="Name" required="" id="replyPostName1">
 											<textarea name="Message" placeholder="Message" required="" id="replyPostMessage1"></textarea>
-											<input type="submit" value="Reply" id="replyPost1">
+											<input type="submit" value="Reply" id="replyPost1" class="btn btn-primary">
+											</form>
 									</ul>
 									<div class="media response-info">
 										<div class="media-left response-text-left">
@@ -188,8 +189,8 @@
 												<form action="#" method="post">
 												<input type="text" name="Name" placeholder="Name" required="" id="replyPostName2">
 												<textarea name="Message" placeholder="Message" required="" id="replyPostMessage2"></textarea>
-												<input type="submit" value="Reply" id="replyPost2">
-										</form>
+												<input type="submit" value="Reply" id="replyPost2" class="btn btn-primary">
+												</form>
 											</ul>		
 										</div>
 										<div class="clearfix"> </div>
@@ -212,22 +213,20 @@
 										<form action="#" method="post">
 											<input type="text" name="Name" placeholder="Name" required="" id="replyPostName3">
 											<textarea name="Message" placeholder="Message" required="" id="replyPostMessage3"></textarea>
-											<input type="submit" value="Reply" id="replyPost3">
+											<input type="submit" value="Reply" id="replyPost3" class="btn btn-primary">										
 										</form>
 									</ul>	
-
-									
 								</div>
 								<div class="clearfix"> </div>
 							</div>
 						</div>
 						<!---728x90--->
 						<div class="opinion">
-							<h3>Start a new Conversation</h3>
+							<h3>Send A New Message</h3>
 							<form action="#" method="post">
 								<input type="text" name="Name" placeholder="Name" required="" id="postName">
 								<textarea name="Message" placeholder="Message" required="" id="postMessage"></textarea>
-								<input type="submit" value="Send" id="post">
+								<input type="submit" value="Send" id="post" class="btn btn-primary">
 							</form>
 						</div>
 					</div>
@@ -263,21 +262,16 @@
 <!-- js for blog-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<!-- script for reply blog -->
 <script>
-/*  used to start a new conversation but replacing with something else. currently testing
-	$(document).on('click',"#post",function(evt){
-		evt.preventDefault();
-		
-		console.log("message");
-	
-		//alert("testing submit alert");
-		
-		var div = document.createElement('div');
-		div.setAttribute('class', "media response-info");
-		var name = document.getElementById("postName").value;
-		var message = document.getElementById("postMessage").value;
-		
-		div.innerHTML = `
+function replyMessageFunction(convo, replyName, replyMessage){
+	//alert("replyMessageFunction alert");
+	var div = document.createElement('div');
+	//div.setAttribute('class', "media response-info");
+	var name = replyName;
+	var message = replyMessage;
+	div.innerHTML = `
+		<div class="media response-info">
 			<div class="media-left response-text-left">
 				<a href="#">
 				<img class="media-object" src="images/no_picture.jpg" alt="">
@@ -287,14 +281,20 @@
 			<div class="media-body response-text-right">
 				<p> ${message}</p>
 				<ul>
-				<li> ${new Date().toLocaleDateString()}</li>
-					<form action="#" method="post">
-						<input type="text" name="Name" placeholder="Name" required="" id="replyPostName">
-						<textarea name="Message" placeholder="Message" required="" id="replyPostMessage"></textarea>
-						<input type="submit" value="Reply" id="replyPost">
-					</form>
+					<li> ${new Date().toLocaleDateString()}</li>
+
+						<form method="post">
+						<input type="text" name="Name" placeholder="Name" required="">
+						<textarea name="Message" placeholder="Message" required=""></textarea>
+						<input type="submit" value="Reply" class="btn btn-primary">
+						
+						</form> 
+					
 				</ul>
 			</div>
+<<<<<<< HEAD
+			<div class="clearfix"> </div>
+=======
 	
 		`;
 		document.getElementById('response').appendChild(div);
@@ -326,10 +326,12 @@ function replyMessageFunction(convo, replyName, replyMessage){
 				<li> ${new Date().toLocaleDateString()}</li>
 				<li> Reply </li>
 			</ul>
+>>>>>>> c9d8724ef79bb45559fcb3317b59d68582584f20
 		</div>
 	
 		`;
 		document.getElementById(convo).appendChild(div);
+
 
 }
 
@@ -342,6 +344,8 @@ function replyMessageFunction(convo, replyName, replyMessage){
 		var newName = document.getElementById("postName").value;
 		var newMessage = document.getElementById("postMessage").value;
 		replyMessageFunction("response",newName,newMessage);
+		document.getElementById("postName").value='';
+		document.getElementById("postMessage").value='';
 	
 
 	});
@@ -356,6 +360,8 @@ function replyMessageFunction(convo, replyName, replyMessage){
 		var replyMessage = document.getElementById("replyPostMessage1").value;
 		var convoNumber = "c1";
 		replyMessageFunction(convoNumber,replyName,replyMessage);
+		document.getElementById("replyPostName1").value='';
+		document.getElementById("replyPostMessage1").value='';
 	
 	});
 	<!-- hard coded response #2	-->
@@ -368,6 +374,8 @@ function replyMessageFunction(convo, replyName, replyMessage){
 		var replyMessage = document.getElementById("replyPostMessage2").value;
 		var convoNumber = "c2";
 		replyMessageFunction(convoNumber,replyName,replyMessage);
+		document.getElementById("replyPostName2").value='';
+		document.getElementById("replyPostMessage3").value='';
 	
 	});
 	<!-- hard coded response #3 -->
@@ -380,6 +388,8 @@ function replyMessageFunction(convo, replyName, replyMessage){
 		var replyMessage = document.getElementById("replyPostMessage3").value;
 		var convoNumber = "c3";
 		replyMessageFunction(convoNumber,replyName,replyMessage);
+		document.getElementById("replyPostName3").value='';
+		document.getElementById("replyPostMessage3").value='';
 
 	});
 
