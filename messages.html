@@ -169,8 +169,8 @@
 										<li>2/28/2018</li>
 										<!-- <li><a href="" id="reply">Reply</a></li> -->
 											<form action="#" method="post">
-											<input type="text" name="Name" placeholder="Name" required="" id="replyPostName1">
-											<textarea name="Message" placeholder="Message" required="" id="replyPostMessage1"></textarea>
+											<input type="text" name="Name" placeholder="Name" required="" id="replyPostName1" class="form-control">
+											<textarea name="Message" placeholder="Message" required="" id="replyPostMessage1" class="form-control"></textarea>
 											<input type="submit" value="Reply" id="replyPost1" class="btn btn-primary">
 											</form>
 									</ul>
@@ -187,8 +187,8 @@
 												<li>2/28/2018</li>
 												<!-- <li><a href="" id="reply">Reply</a></li> -->
 												<form action="#" method="post">
-												<input type="text" name="Name" placeholder="Name" required="" id="replyPostName2">
-												<textarea name="Message" placeholder="Message" required="" id="replyPostMessage2"></textarea>
+												<input type="text" name="Name" placeholder="Name" required="" id="replyPostName2" class="form-control">
+												<textarea name="Message" placeholder="Message" required="" id="replyPostMessage2" class="form-control"></textarea>
 												<input type="submit" value="Reply" id="replyPost2" class="btn btn-primary">
 												</form>
 											</ul>		
@@ -211,8 +211,8 @@
 										<li>2/28/2018</li>
 										<!-- <li><a href="" id="reply">Reply</a></li> -->
 										<form action="#" method="post">
-											<input type="text" name="Name" placeholder="Name" required="" id="replyPostName3">
-											<textarea name="Message" placeholder="Message" required="" id="replyPostMessage3"></textarea>
+											<input type="text" name="Name" placeholder="Name" required="" id="replyPostName3" class="form-control">
+											<textarea name="Message" placeholder="Message" required="" id="replyPostMessage3" class="form-control"></textarea>
 											<input type="submit" value="Reply" id="replyPost3" class="btn btn-primary">										
 										</form>
 									</ul>	
@@ -284,54 +284,19 @@ function replyMessageFunction(convo, replyName, replyMessage){
 					<li> ${new Date().toLocaleDateString()}</li>
 
 						<form method="post">
-						<input type="text" name="Name" placeholder="Name" required="">
-						<textarea name="Message" placeholder="Message" required=""></textarea>
+						<input type="text" name="Name" placeholder="Name" required="" class="form-control">
+						<textarea name="Message" placeholder="Message" required="" class="form-control"></textarea>
 						<input type="submit" value="Reply" class="btn btn-primary">
 						
 						</form> 
 					
 				</ul>
 			</div>
-<<<<<<< HEAD
 			<div class="clearfix"> </div>
-=======
-	
-		`;
-		document.getElementById('response').appendChild(div);
-		
-		
-	});
-*/
-</script>
-
-
-<!-- script for reply blog -->
-<script>
-function replyMessageFunction(convo, replyName, replyMessage){
-	//alert("replyMessageFunction alert");
-	var div = document.createElement('div');
-	div.setAttribute('class', "media response-info");
-	var name = replyName;
-	var message = replyMessage;
-	div.innerHTML = `
-		<div class="media-left response-text-left">
-			<a href="#">
-			<img class="media-object" src="images/no_picture.jpg" alt="">
-			</a>
-			<h5><a href="#"> ${name}</a></h5>
-		</div>
-		<div class="media-body response-text-right">
-			<p> ${message}</p>
-			<ul>
-				<li> ${new Date().toLocaleDateString()}</li>
-				<li> Reply </li>
-			</ul>
->>>>>>> c9d8724ef79bb45559fcb3317b59d68582584f20
 		</div>
 	
 		`;
 		document.getElementById(convo).appendChild(div);
-
 
 }
 
@@ -347,7 +312,6 @@ function replyMessageFunction(convo, replyName, replyMessage){
 		document.getElementById("postName").value='';
 		document.getElementById("postMessage").value='';
 	
-
 	});
 
 	<!-- hard coded response #1 -->
@@ -392,9 +356,10 @@ function replyMessageFunction(convo, replyName, replyMessage){
 		document.getElementById("replyPostMessage3").value='';
 
 	});
-
+	
+	
+	
 </script>
-
 
 <!-- js -->
 <script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
